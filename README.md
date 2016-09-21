@@ -65,10 +65,10 @@ python LargeVis_run.py -input -output
 * `-output`: Output file of low-dimensional representations.
 
 Besides the two parameters, other optional parameters include:
-* `-fea`: specify whether the input file is high-dimensional feature vectors (1) or networks (0). Default is 1. 
+* `-fea`: specify whether the input file is high-dimensional feature vectors (1) or networks (0). Default is 1.
 * `-threads`: Number of threads. Default is 8.
 * `-outdim`: The lower dimensionality LargesVis learns for visualization (usually 2 or 3). Default is 2.
-* `-samples`: Number of edge samples for graph layout (in millions). Default is set to ```data size / 100``` (million). 
+* `-samples`: Number of edge samples for graph layout (in millions). Default is set to ```data size / 100``` (million).
 * `-prop`: Number of times for neighbor propagations in the state of K-NNG construction, usually less than 3. Default is 3.
 * `-alpha`: Initial learning rate. Default is 1.0.
 * `-trees`: Number of random-projection trees used for constructing K-NNG. 50 is sufficient for most cases unless you are dealing with very large datasets (e.g. data size over 5 million), and less trees are suitable for smaller datasets. Default is set according to the data size.
@@ -78,6 +78,12 @@ Besides the two parameters, other optional parameters include:
 * `-perp`: The perplexity used for deciding edge weights in K-NNG. Default is 50.
 * `-log`: specify whether to pre-process similarities with logarithmization (1) or not (0). Default is 0.
 
+
+or for Docker
+
+```
+docker run -u $UID -v $PWD:/data 3dechem/largevis LargeVis -input -output
+```
 
 ##Examples
 We provide some examples including MNIST(high-dimensional feature vectors) and CondMat(networks) in the ```Examples/``` folder.
