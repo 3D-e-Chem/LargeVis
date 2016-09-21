@@ -19,5 +19,7 @@ WORKDIR /code
 RUN cd Linux && g++ LargeVis.cpp main.cpp -o LargeVis -lm -pthread -lgsl -lgslcblas -Ofast -march=native -ffast-math && \
   python setup.py install && cp LargeVis /usr/bin && mkdir /data
 
+WORKDIR /data
+
 CMD ["LargeVis", "--help"]
 
